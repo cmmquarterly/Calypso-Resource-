@@ -52,27 +52,21 @@
                 <p><strong>Defining a Datum</strong></p>
                 <p>A datum is an ideal, theoretically exact geometric reference. The datum itself is never physically touched — what we touch is a datum feature.</p>
                 <p><strong>Datum Features and Targets</strong></p>
-                <p>Datum targets are specific areas used when full-surface contact is not practical (common in aerospace).</p>
-                <p><strong>ISO vs ASME Standards</strong></p>
-                <p>Both define datums similarly but differ in details.</p>`;
+                <p>Datum targets are specific areas used when full-surface contact is not practical.</p>
+                <p><strong>Functional Role of Datums</strong></p>
+                <p>Stabilizes the part, replicates assembly conditions, controls degrees of freedom.</p>`;
             } else if (ch === 2) {
-                html += `<p><strong>The Purpose of a DRF</strong></p>
-                <p>Stability, Functionality, Traceability.</p>
-                <p><strong>The 3-2-1 Rule</strong></p>
-                <p>Primary (3 points), Secondary (2 points), Tertiary (1 point). Fully constrains the part.</p>
-                <p>DRFs are digitally simulated on CMMs.</p>`;
+                html += `<p><strong>The 3-2-1 Rule Explained</strong></p>
+                <p>Primary Datum (3 points): Establishes a plane. Secondary (2 points), Tertiary (1 point).</p>
+                <p>DRFs are digitally simulated on CMMs using measured points.</p>`;
             } else if (ch === 3) {
                 html += `<p><strong>Common Datum Types</strong></p>
                 <p>Planes, Axes, Points, Lines, Spheres.</p>
                 <p><strong>Material Condition Modifiers</strong></p>
-                <p>RFS, MMC (allows datum shift), LMC.</p>
-                <p>Stability, Repeatability, Form Errors, Patterns as Datums.</p>`;
+                <p>RFS, MMC, LMC and their impact on datum shift.</p>`;
             } else if (ch === 4) {
-                html += `<p><strong>Manual vs CAD-based Alignment</strong></p>
-                <p>Manual for initial positioning. CAD for precision.</p>
-                <p><strong>Step-by-Step Workflow</strong></p>
-                <p>Identify DRF, Probe features, Construct simulated datums, Establish DRF, Verify stability.</p>
-                <p>Fixture vs Datum Alignment, Datum Targets.</p>`;
+                html += `<p><strong>Step-by-Step Basic Alignment Workflow</strong></p>
+                <p>Identify DRF, Probe features, Construct simulated datums, Establish DRF, Verify stability.</p>`;
             }
             document.getElementById('mainContent').innerHTML = html;
         }
