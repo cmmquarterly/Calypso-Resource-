@@ -8,10 +8,10 @@
         body { margin: 0; font-family: Arial, sans-serif; display: flex; height: 100vh; }
         .sidebar { width: 300px; background: #1e3a8a; color: white; padding: 20px; overflow-y: auto; }
         .main { flex: 1; padding: 30px; overflow-y: auto; background: white; }
-        .topic { padding: 12px; cursor: pointer; border-bottom: 1px solid #3b82f6; }
+        .topic { padding: 12px; cursor: pointer; border-bottom: 1px solid #ccc; }
         .topic:hover { background: #3b82f6; }
         .home-btn { padding: 10px 15px; background: #0066cc; color: white; border: none; border-radius: 5px; margin: 10px 0; cursor: pointer; }
-        .chapter { padding: 12px; margin: 10px 0; background: #f0f0f0; border-radius: 6px; cursor: pointer; }
+        .chapter { padding: 12px; margin: 8px 0; background: #f0f0f0; border-radius: 6px; cursor: pointer; }
         .chapter:hover { background: #ddd; }
     </style>
 </head>
@@ -36,16 +36,24 @@
             document.getElementById('mainContent').innerHTML = `
                 <button class="home-btn" onclick="showHome()">← Home</button>
                 <h1>Mastering Datums & CMM Alignments in Calypso</h1>
-                <h2>Table of Contents</h2>
-                <div class="chapter" onclick="loadChapter(1)">Chapter 1: What is a Datum?</div>
-                <div class="chapter" onclick="loadChapter(2)">Chapter 2: Datum Reference Frames (DRF)</div>
-                <div class="chapter" onclick="loadChapter(3)">Chapter 3: Datum Types & Their Behavior</div>
-                <div class="chapter" onclick="loadChapter(4)">Chapter 4: Establishing Basic Alignments</div>
+                <h2>Chapter 1: What is a Datum?</h2>
+                <p>A datum is an ideal, theoretically exact geometric reference...</p>
+                <h2>Chapter 2: Datum Reference Frames (DRF)</h2>
+                <p>The 3-2-1 Rule Explained.</p>
+                <h2>Chapter 3: Datum Types & Their Behavior</h2>
+                <p>Planes, Axes, Material Condition Modifiers.</p>
+                <h2>Chapter 4: Establishing Basic Alignments</h2>
+                <p>Step-by-Step Workflow and Best Practices.</p>
             `;
         }
 
-        function loadChapter(ch) {
-            let content = `<button class="home-btn" onclick="showHome()">← Home</button><h1>Chapter ${ch}</h1>`;
-            if (ch === 1) content += `<p>Every measurement needs a reference. A datum is an ideal, theoretically exact geometric reference...</p>`;
-            else if (ch === 2) content += `<p>The 3-2-1 Rule Explained. Primary, Secondary, and Tertiary datums.</p>`;
-            else if (ch === 3) content += `<p>
+        function showBasics() {
+            document.getElementById('mainContent').innerHTML = `
+                <button class="home-btn" onclick="showHome()">← Home</button>
+                <h1>CMM Basics</h1>
+                <p>Core principles coming soon with more content from your materials.</p>
+            `;
+        }
+    </script>
+</body>
+</html>
