@@ -41,20 +41,43 @@
                 <div class="chapter" onclick="loadChapter(2)">Chapter 2: Datum Reference Frames (DRF)</div>
                 <div class="chapter" onclick="loadChapter(3)">Chapter 3: Datum Types & Their Behavior</div>
                 <div class="chapter" onclick="loadChapter(4)">Chapter 4: Establishing Basic Alignments</div>
+                <div class="chapter" onclick="loadChapter(5)">Chapter 5: Common Alignment Strategies</div>
+                <div class="chapter" onclick="loadChapter(6)">Chapter 6: Advanced Datum Alignment Concepts</div>
+                <div class="chapter" onclick="loadChapter(7)">Chapter 7: Advanced Alignments</div>
+                <div class="chapter" onclick="loadChapter(8)">Chapter 8: Best CMM Practices</div>
+                <div class="chapter" onclick="loadChapter(9)">Chapter 9: Troubleshooting Alignment Errors</div>
+                <div class="chapter" onclick="loadChapter(10)">Chapter 10: CMM Alignment Strategies</div>
+                <div class="chapter" onclick="loadChapter(11)">Chapter 11: Measurement Uncertainty and Datums</div>
+                <div class="chapter" onclick="loadChapter(12)">Chapter 12: Fixturing & Workholding Considerations</div>
+                <div class="chapter" onclick="loadChapter(13)">Chapter 13: Reporting & Communication</div>
             `;
         }
 
         function loadChapter(ch) {
             let html = `<button class="home-btn" onclick="showHome()">← Home</button><h1>Chapter ${ch}</h1>`;
-            if (ch === 1) {
-                html += `<p>Every measurement needs a reference. In coordinate metrology, that reference is called a datum. ...</p>
-                <p><strong>Defining a Datum</strong></p>
-                <p>A datum is an ideal, theoretically exact geometric reference from which measurements are made. The datum itself is never physically touched — what we touch is a datum feature.</p>
-                <p><strong>Datum Features and Targets</strong></p>
-                <p>Datum targets are specific areas used when full-surface contact is not practical.</p>
-                <p><strong>Functional Role of Datums</strong></p>
-                <p>Stabilizes the part, replicates assembly conditions, controls degrees of freedom.</p>`;
-            } else if (ch === 2) {
-                html += `<p><strong>The 3-2-1 Rule Explained</strong></p>
-                <p>Primary Datum (3 points): Establishes a plane. Secondary (2 points), Tertiary (1 point).</p>
-                <p>DRFs are
+            if (ch === 1) html += `<p>Every measurement needs a reference. A datum is an ideal, theoretically exact geometric reference... Full content: Defining a Datum, Datum Features and Targets, ISO vs ASME, Functional Role of Datums.</p>`;
+            else if (ch === 2) html += `<p>The 3-2-1 Rule, Primary/Secondary/Tertiary hierarchies, Simulated DRFs in CMMs.</p>`;
+            else if (ch === 3) html += `<p>Common Datum Types, Material Condition Modifiers, Stability, Form Errors, Patterns as Datums, Tangent Plane.</p>`;
+            else if (ch === 4) html += `<p>Manual vs CAD-based, Fixture vs Datum Alignment, Step-by-Step Workflow, Datum Targets.</p>`;
+            else if (ch === 5) html += `<p>Plane-Plane, Cylinder Axis, Plane/Circle/Line, Pattern-Based Alignment, etc.</p>`;
+            else if (ch === 6) html += `<p>Shift and Mobility, Composite DRFs, Outer Tangential Evaluation, Free-State Measurement.</p>`;
+            else if (ch === 7) html += `<p>3D Best-Fit, Iterative Alignments, RPS Alignment, Alignment from Several Curves.</p>`;
+            else if (ch === 8) html += `<p>Environment and Calibration, Probe Paths, Workholding, Validate Every Alignment.</p>`;
+            else if (ch === 9) html += `<p>Symptoms of Alignment Problems, Root Causes, Systematic Troubleshooting.</p>`;
+            else if (ch === 10) html += `<p>Understanding Measurement Intent, Logical Layers, Gage R&R.</p>`;
+            else if (ch === 11) html += `<p>Measurement Uncertainty, Sources in Datum-Driven Alignments, ISO 10360-2.</p>`;
+            else if (ch === 12) html += `<p>Goals of Fixturing, Common Workholding Methods, Environmental Considerations.</p>`;
+            else if (ch === 13) html += `<p>Goals of Measurement Reporting, Essential Elements of a CMM Report.</p>`;
+            document.getElementById('mainContent').innerHTML = html;
+        }
+
+        function showBasics() {
+            document.getElementById('mainContent').innerHTML = `
+                <button class="home-btn" onclick="showHome()">← Home</button>
+                <h1>CMM Basics</h1>
+                <p>Fundamentals, probe types, calibration, and more coming soon.</p>
+            `;
+        }
+    </script>
+</body>
+</html>
