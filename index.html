@@ -41,43 +41,35 @@
                 <div class="chapter" onclick="loadChapter(2)">Chapter 2: Datum Reference Frames (DRF)</div>
                 <div class="chapter" onclick="loadChapter(3)">Chapter 3: Datum Types & Their Behavior</div>
                 <div class="chapter" onclick="loadChapter(4)">Chapter 4: Establishing Basic Alignments</div>
-                <div class="chapter" onclick="loadChapter(5)">Chapter 5: Common Alignment Strategies</div>
-                <div class="chapter" onclick="loadChapter(6)">Chapter 6: Advanced Datum Alignment Concepts</div>
-                <div class="chapter" onclick="loadChapter(7)">Chapter 7: Advanced Alignments</div>
-                <div class="chapter" onclick="loadChapter(8)">Chapter 8: Best CMM Practices</div>
-                <div class="chapter" onclick="loadChapter(9)">Chapter 9: Troubleshooting Alignment Errors</div>
-                <div class="chapter" onclick="loadChapter(10)">Chapter 10: CMM Alignment Strategies</div>
-                <div class="chapter" onclick="loadChapter(11)">Chapter 11: Measurement Uncertainty and Datums</div>
-                <div class="chapter" onclick="loadChapter(12)">Chapter 12: Fixturing & Workholding Considerations</div>
-                <div class="chapter" onclick="loadChapter(13)">Chapter 13: Reporting & Communication</div>
             `;
         }
 
         function loadChapter(ch) {
             let html = `<button class="home-btn" onclick="showHome()">← Home</button><h1>Chapter ${ch}</h1>`;
             if (ch === 1) {
-                html += `<p><strong>Defining a Datum</strong></p>
+                html += `<p><strong>Introduction</strong></p>
+                <p>Every measurement needs a reference. In coordinate metrology, that reference is called a datum. Without a consistent reference system, it would be impossible to measure a part with repeatability or to communicate tolerances effectively between design, manufacturing, and quality teams.</p>
+                <p><strong>Defining a Datum</strong></p>
                 <p>A datum is an ideal, theoretically exact geometric reference from which measurements are made. The datum itself is never physically touched — what we touch is a datum feature, a physical part surface intended to represent the theoretical datum.</p>
                 <p><strong>Datum Features and Targets</strong></p>
-                <p>Not every feature is used as a whole. Datum targets are specific areas (pads, points, or lines) used when full-surface contact is not practical.</p>
-                <p><strong>Functional Role of Datums</strong></p>
-                <p>Stabilizes the part, replicates functional assembly conditions, controls degrees of freedom.</p>`;
+                <p>Not every feature is used as a whole. Datum targets are specific areas (pads, points, or lines) used when full-surface contact is not practical.</p>`;
             } else if (ch === 2) {
-                html += `<p><strong>The 3-2-1 Rule Explained</strong></p>
-                <p>Primary Datum (3 points): Establishes a plane. Secondary (2 points), Tertiary (1 point).</p>
-                <p>DRFs are digitally simulated on CMMs using measured points to calculate best-fit planes, axes, or points.</p>`;
+                html += `<p><strong>The Purpose of a DRF</strong></p>
+                <p>A DRF serves three critical roles: Stability, Functionality, Traceability.</p>
+                <p><strong>The 3-2-1 Rule Explained</strong></p>
+                <p>Primary Datum (3 points): Establishes a plane. Secondary (2 points), Tertiary (1 point). This method fully constrains a part without over-defining it.</p>`;
             } else if (ch === 3) {
                 html += `<p><strong>Common Datum Types</strong></p>
                 <p>Planes, Axes, Points, Lines or Slots, Spheres.</p>
                 <p><strong>Material Condition Modifiers</strong></p>
-                <p>RFS, MMC, LMC and their impact on datum shift and stability.</p>`;
+                <p>RFS (Regardless of Feature Size), MMC (Maximum Material Condition), LMC (Least Material Condition).</p>`;
             } else if (ch === 4) {
-                html += `<p><strong>Manual vs CAD-based Alignment</strong></p>
+                html += `<p><strong>The Purpose of Alignment</strong></p>
+                <p>Orientation and Location.</p>
+                <p><strong>Manual vs CAD-based Alignment</strong></p>
                 <p>Manual for initial positioning. CAD for precision.</p>
                 <p><strong>Step-by-Step Basic Alignment Workflow</strong></p>
-                <p>1. Identify the DRF. 2. Probe the datum features. 3. Construct simulated datums. 4. Establish the DRF. 5. Verify stability.</p>`;
-            } else {
-                html += `<p>Full chapter content from your book is available here. More detailed text and images can be added.</p>`;
+                <p>1. Identify the DRF from the drawing. 2. Probe the datum features. 3. Construct simulated datums. 4. Establish the DRF. 5. Verify stability.</p>`;
             }
             document.getElementById('mainContent').innerHTML = html;
         }
@@ -86,7 +78,7 @@
             document.getElementById('mainContent').innerHTML = `
                 <button class="home-btn" onclick="showHome()">← Home</button>
                 <h1>CMM Basics</h1>
-                <p>Core principles of CMM operation coming soon with more detailed content.</p>
+                <p>Core principles coming soon.</p>
             `;
         }
     </script>
