@@ -11,8 +11,9 @@
         .sidebar h1 { padding: 0 20px 20px; margin: 0; border-bottom: 1px solid #3b82f6; font-size: 1.4em; }
         .topic { padding: 12px 24px; cursor: pointer; }
         .topic:hover, .topic.active { background: #3b82f6; }
-        .main { flex: 1; padding: 30px; overflow-y: auto; background: white; }
+        .main { flex: 1; padding: 20px; overflow-y: auto; background: white; }
         .content { max-width: 900px; line-height: 1.7; }
+        .home-btn { background: #0066cc; color: white; padding: 10px 16px; border: none; border-radius: 6px; cursor: pointer; margin-bottom: 20px; }
         .chapter { margin: 12px 0; padding: 12px; background: #f8f9fa; border-radius: 6px; cursor: pointer; }
         .chapter:hover { background: #e9ecef; }
         .search { padding: 12px; margin: 10px 20px; width: calc(100% - 40px); border: none; border-radius: 6px; }
@@ -38,7 +39,75 @@
             "alignments": {
                 title: "Alignments & Part Setup",
                 content: `
+                    <button class="home-btn" onclick="showHome()">← Home</button>
                     <h1>Mastering Datums & CMM Alignments in Calypso</h1>
-                    <h2>Table of Contents (Click to jump)</h2>
-                    <div class="chapter" onclick="alert('Chapter 1: What is a Datum? content loaded')">Chapter 1: What is a Datum?</div>
-                    <div class="chapter" onclick="alert('Chapter 2: Datum
+                    <h2>Table of Contents</h2>
+                    <div class="chapter" onclick="loadChapter(1)">Chapter 1: What is a Datum?</div>
+                    <div class="chapter" onclick="loadChapter(2)">Chapter 2: Datum Reference Frames (DRF)</div>
+                    <div class="chapter" onclick="loadChapter(3)">Chapter 3: Datum Types & Their Behavior</div>
+                    <div class="chapter" onclick="loadChapter(4)">Chapter 4: Establishing Basic Alignments</div>
+                `
+            },
+            "cmm_basics": { 
+                title: "CMM Basics", 
+                content: "<button class='home-btn' onclick='showHome()'>← Home</button><h1>CMM Basics</h1><p>Core principles coming soon...</p>" 
+            }
+        };
+
+        function renderTopics() {
+            const container = document.getElementById('topics');
+            container.innerHTML = '';
+            Object.keys(trainingData).forEach(key => {
+                const topic = trainingData[key];
+                const div = document.createElement('div');
+                div.className = 'topic';
+                div.textContent = topic.title;
+                div.onclick = () => showContent(key);
+                container.appendChild(div);
+            });
+        }
+
+        function showContent(key) {
+            const data = trainingData[key];
+            document.getElementById('content').innerHTML = data.content || '<h1>Content coming soon</h1>';
+        }
+
+        function loadChapter(ch) {
+            let html = `<button class="home-btn" onclick="showHome()">← Home</button><h1>Chapter ${ch}</h1>`;
+            if (ch === 1) html += `<p>Every measurement needs a reference. In coordinate metrology, that reference is called a datum...</p><p>Full content from your book is loaded here.</p>`;
+            else if (ch === 2) html += `<p>The 3-2-1 Rule Explained and more from Chapter 2.</p>`;
+            else if (ch === 3) html += `<p>Common Datum Types, Material Condition Modifiers, etc.</p>`;
+            else if (ch === 4) html += `<p>Step-by-Step Basic Alignment Workflow and more.</p>`;
+            document.getElementById('content').innerHTML = html;
+        }
+
+        function showHome() {
+            document.getElementById('content').innerHTML = `
+                <h1>Welcome to Calypso CMM Training</h1>
+                <p>Select a topic from the left sidebar to begin.</p>
+            `;
+        }
+
+        function filterTopics() {
+            const term = document.getElementById('search').value.toLowerCase();
+            const filtered = {};
+            Object.keys(trainingData).forEach(key => {
+                if (trainingData[key].title.toLowerCase().includes(term)) filtered[key] = trainingData[key];
+            });
+            // Simple re-render
+            const container = document.getElementById('topics');
+            container.innerHTML = '';
+            Object.keys(filtered).forEach(key => {
+                const topic = filtered[key];
+                const div = document.createElement('div');
+                div.className = 'topic';
+                div.textContent = topic.title;
+                div.onclick = () => showContent(key);
+                container.appendChild(div);
+            });
+        }
+
+        window.onload = renderTopics;
+    </script>
+</body>
+</html>
