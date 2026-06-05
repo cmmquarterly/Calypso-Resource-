@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calypso CMM Training</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-        .sidebar { width: 300px; background: #1e3a8a; color: white; position: fixed; height: 100%; overflow-y: auto; padding: 20px; }
-        .main { margin-left: 320px; padding: 20px; }
-        .topic { padding: 10px; cursor: pointer; }
+        body { margin: 0; font-family: Arial, sans-serif; display: flex; height: 100vh; }
+        .sidebar { width: 300px; background: #1e3a8a; color: white; padding: 20px; overflow-y: auto; }
+        .main { flex: 1; padding: 30px; overflow-y: auto; background: white; }
+        .topic { padding: 12px; cursor: pointer; border-bottom: 1px solid #3b82f6; }
         .topic:hover { background: #3b82f6; }
-        .home-btn { padding: 10px 15px; background: #0066cc; color: white; border: none; border-radius: 5px; margin-bottom: 15px; cursor: pointer; }
+        .home-btn { padding: 10px 15px; background: #0066cc; color: white; border: none; border-radius: 5px; margin: 10px 0; cursor: pointer; }
+        .chapter { padding: 12px; margin: 10px 0; background: #f0f0f0; border-radius: 6px; cursor: pointer; }
+        .chapter:hover { background: #ddd; }
     </style>
 </head>
 <body>
@@ -22,34 +24,28 @@
 
     <div class="main" id="mainContent">
         <h1>Welcome to Calypso CMM Training</h1>
-        <p>Select a topic from the left.</p>
+        <p>Select a topic from the left sidebar.</p>
     </div>
 
     <script>
         function showHome() {
-            document.getElementById('mainContent').innerHTML = `<h1>Welcome to Calypso CMM Training</h1><p>Select a topic from the left.</p>`;
+            document.getElementById('mainContent').innerHTML = `<h1>Welcome to Calypso CMM Training</h1><p>Select a topic from the left sidebar.</p>`;
         }
 
         function showAlignments() {
             document.getElementById('mainContent').innerHTML = `
                 <button class="home-btn" onclick="showHome()">← Home</button>
                 <h1>Mastering Datums & CMM Alignments in Calypso</h1>
-                <h2>Chapter 1: What is a Datum?</h2>
-                <p>Every measurement needs a reference. A datum is an ideal, theoretically exact geometric reference...</p>
-                <p><strong>Key Points:</strong> Datum vs Datum Feature, Simulated Datum, ISO vs ASME.</p>
-
-                <h2>Chapter 2: Datum Reference Frames (DRF)</h2>
-                <p>The 3-2-1 Rule: Primary (3 points), Secondary (2 points), Tertiary (1 point).</p>
-
-                <h2>Chapter 3: Datum Types & Their Behavior</h2>
-                <p>Planes, Axes, Points, Material Condition Modifiers (MMC, RFS, LMC).</p>
-
-                <h2>Chapter 4: Establishing Basic Alignments</h2>
-                <p>Manual vs CAD-based, Fixture vs Datum Alignment, Step-by-Step Workflow.</p>
-
-                <p><em>Full book chapters with images and more details can be expanded. Let me know what to add next.</em></p>
+                <h2>Table of Contents</h2>
+                <div class="chapter" onclick="loadChapter(1)">Chapter 1: What is a Datum?</div>
+                <div class="chapter" onclick="loadChapter(2)">Chapter 2: Datum Reference Frames (DRF)</div>
+                <div class="chapter" onclick="loadChapter(3)">Chapter 3: Datum Types & Their Behavior</div>
+                <div class="chapter" onclick="loadChapter(4)">Chapter 4: Establishing Basic Alignments</div>
             `;
         }
 
-        function showBasics() {
-            document.getElementById('mainContent').innerHTML = `
+        function loadChapter(ch) {
+            let content = `<button class="home-btn" onclick="showHome()">← Home</button><h1>Chapter ${ch}</h1>`;
+            if (ch === 1) content += `<p>Every measurement needs a reference. A datum is an ideal, theoretically exact geometric reference...</p>`;
+            else if (ch === 2) content += `<p>The 3-2-1 Rule Explained. Primary, Secondary, and Tertiary datums.</p>`;
+            else if (ch === 3) content += `<p>
